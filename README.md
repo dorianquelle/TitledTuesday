@@ -1,15 +1,13 @@
 # Titled Tuesday Analysis
 
 ## Introduction
-On the 14th of September the Csquared Podcast hosted by Grandmasters Fabiano Caruana and Cristian Chirila, invited former World Champion Vladimir Kramnik to opine on the state of online Chess cheating. 
+On September 14th, the esteemed Csquared Podcast, anchored by Grandmasters Fabiano Caruana and Cristian Chirila, played host to the legendary former World Chess Champion, Vladimir Kramnik. The session delved deep into the pressing concern of online Chess cheating. Over two engrossing hours, Kramnik pulled no punches, stating that online cheating in chess has become rampant. He even went so far as to suggest that he is disproportionately targeted, alleging that Chess.com doesn't scrutinize games involving him as rigorously as they do for other luminaries like Hikaru Nakamura or Magnus Carlsen.
 
-In the two hour interview Kramnik claims that cheating online is rampant, with swaths of players cheating. He further alleges that he is a particular target of cheating as Chess.com does not check games against him to the same extent as against Hikaru or Carlsen. 
-
-## The Data
-The data used in this analysis was scraped from the Chess.com API. While the API is not documented, it is quite easy to extract all Titled Tuesday Games. On the 19th of September we currently have downloaded 141.449 games for 2023 and 75.737 unique games for the year 2022. 
+## Data Collection
+Our analysis is underpinned by data gleaned directly from the Chess.com API. Though the API isn’t publicized, it still presents a straightforward avenue to harvest all the games from Titled Tuesday. As of September 19th, our dataset boasts 141,449 games from 2023, complemented by 75,737 unique matches from the previous year, 2022.
 
 ## The Analysis
-I am running Stockfish 16 for each game. Each move is evaluated for one second and the results are stored. The results are then compared to the actual move played.
+To ensure robustness in our findings, every game in our dataset is rigorously assessed using Stockfish 16. Each move within a game is evaluated for a span of one second, after which the results are cataloged. These computed moves are then juxtaposed with the actual moves executed during the game.
 
 ## Forthcoming
 I will fact-check the claims by the great Kramnik and see if there is any truth to them. This project will *not* be a witch-hunt. I am not interested in finding cheaters, but rather in finding out if there is any truth to the claims made by Kramnik.
