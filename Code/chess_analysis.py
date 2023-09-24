@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import os
 import json
+import hashlib
 
 engine_path = "/opt/homebrew/bin/stockfish"
 
@@ -124,19 +125,18 @@ def process_game(game, engine_path, multi_pv_lines=5, thinking_time=1):
     with open("../Data/Analysed/" + new_filename, "w") as f:
         json.dump(game_json, f, indent=4)
 
-
-
-def should_process_file(filename, modulus_target=0):
+def should_process_file(filename,precomputed, modulus_target=0):
     """
     Hashes the filename and checks the modulus against the modulus_target.
     If they match, returns True; otherwise returns False.
+    a = should return ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb
     """
+    if filename in precomputed:
+        return False
     m = hashlib.sha256()
     m.update(filename.encode('utf-8'))
     hex_result = m.hexdigest()
     return int(hex_result, 16) % 2 == modulus_target
-
-
 
 def process_game_helper(args):
     process_game(*args)
